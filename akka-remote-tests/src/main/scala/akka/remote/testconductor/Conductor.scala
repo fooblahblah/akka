@@ -9,7 +9,7 @@ import RemoteConnection.getAddrString
 import TestConductorProtocol._
 import org.jboss.netty.channel.{ Channel, SimpleChannelUpstreamHandler, ChannelHandlerContext, ChannelStateEvent, MessageEvent }
 import com.typesafe.config.ConfigFactory
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import akka.pattern.ask
 import scala.concurrent.Await
 import akka.event.{ LoggingAdapter, Logging }
@@ -21,9 +21,7 @@ import akka.actor.{ OneForOneStrategy, SupervisorStrategy, Status, Address, Pois
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit.MILLISECONDS
 import akka.util.{ Timeout }
-import scala.concurrent.util.{ Deadline, Duration }
 import scala.reflect.classTag
-import scala.concurrent.util.FiniteDuration
 
 sealed trait Direction {
   def includes(other: Direction): Boolean

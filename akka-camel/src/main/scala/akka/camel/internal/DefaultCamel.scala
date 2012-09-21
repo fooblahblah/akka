@@ -7,9 +7,9 @@ import scala.Predef._
 import akka.event.Logging
 import akka.camel.{ CamelSettings, Camel }
 import scala.util.control.NonFatal
-import scala.concurrent.util.Duration
+import scala.concurrent.duration.Duration
 import org.apache.camel.{ ProducerTemplate, CamelContext }
-import scala.concurrent.util.FiniteDuration
+import scala.concurrent.duration.FiniteDuration
 
 /**
  * For internal use only.

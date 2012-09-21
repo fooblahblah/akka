@@ -4,8 +4,7 @@
 package akka.cluster
 
 import scala.collection.immutable.SortedSet
-import scala.concurrent.util.{ Deadline, Duration }
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import scala.concurrent.forkjoin.ThreadLocalRandom
 import akka.actor.{ Actor, ActorLogging, ActorRef, Address, Cancellable, Props, ReceiveTimeout, RootActorPath, PoisonPill, Scheduler }
 import akka.actor.Status.Failure
@@ -16,7 +15,6 @@ import akka.cluster.MemberStatus._
 import akka.cluster.ClusterEvent._
 import language.existentials
 import language.postfixOps
-import scala.concurrent.util.FiniteDuration
 
 /**
  * Base trait for all cluster messages. All ClusterMessage's are serializable.

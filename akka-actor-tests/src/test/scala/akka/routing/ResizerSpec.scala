@@ -8,13 +8,11 @@ import akka.actor.Actor
 import akka.testkit._
 import akka.actor.Props
 import scala.concurrent.Await
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import akka.actor.ActorRef
 import java.util.concurrent.atomic.AtomicInteger
 import akka.pattern.ask
-import scala.concurrent.util.Duration
 import java.util.concurrent.TimeoutException
-import scala.concurrent.util.FiniteDuration
 
 object ResizerSpec {
 

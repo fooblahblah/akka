@@ -6,7 +6,7 @@ package akka.camel;
 
 import akka.actor.Status;
 import akka.camel.javaapi.UntypedConsumerActor;
-import scala.concurrent.util.Duration;
+import scala.concurrent.duration.Duration;
 import org.apache.camel.builder.Builder;
 import org.apache.camel.model.ProcessorDefinition;
 import org.apache.camel.model.RouteDefinition;

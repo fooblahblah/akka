@@ -7,8 +7,7 @@ import language.postfixOps
 
 import akka.actor._
 import akka.actor.Actor._
-import scala.concurrent.util.{ Duration, FiniteDuration }
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import java.util.concurrent.{ BlockingDeque, LinkedBlockingDeque, TimeUnit, atomic }
 import atomic.AtomicInteger
 import scala.annotation.tailrec

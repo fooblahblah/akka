@@ -13,8 +13,8 @@ import org.junit.Test;
 
 import scala.concurrent.Await;
 import scala.concurrent.ExecutionContext;
-import scala.concurrent.util.Duration;
-import scala.concurrent.util.FiniteDuration;
+import scala.concurrent.duration.Duration;
+import scala.concurrent.duration.FiniteDuration;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;

@@ -2,13 +2,11 @@ package akka.camel.internal
 
 import language.postfixOps
 import org.scalatest.matchers.MustMatchers
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import org.scalatest.{ GivenWhenThen, BeforeAndAfterEach, BeforeAndAfterAll, WordSpec }
 import akka.actor.{ Props, ActorSystem }
-import scala.concurrent.util.Duration
 import akka.camel._
 import akka.testkit.{ TimingTest, TestProbe, TestKit }
-import scala.concurrent.util.FiniteDuration
 
 class ActivationTrackerTest extends TestKit(ActorSystem("test")) with WordSpec with MustMatchers with BeforeAndAfterAll with BeforeAndAfterEach with GivenWhenThen {
 

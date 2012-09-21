@@ -7,8 +7,8 @@ package akka.actor
 import language.postfixOps
 import java.util.concurrent.{ TimeUnit, CountDownLatch }
 import scala.concurrent.Await
-import scala.concurrent.util.Duration
-import scala.concurrent.util.duration.intToDurationInt
+import scala.concurrent.duration.Duration
+import scala.concurrent.duration.intToDurationInt
 import scala.math.BigInt.int2bigInt
 import scala.util.Random
 import scala.util.control.NoStackTrace

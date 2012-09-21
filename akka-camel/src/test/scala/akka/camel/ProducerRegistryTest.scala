@@ -9,7 +9,7 @@ import language.postfixOps
 import org.scalatest.matchers.MustMatchers
 import org.scalatest.WordSpec
 import akka.camel.TestSupport.SharedCamelSystem
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import akka.actor.{ ActorRef, Props }
 import akka.util.Timeout
 import scala.concurrent.Await

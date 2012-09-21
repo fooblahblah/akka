@@ -5,7 +5,7 @@
 package akka.cluster
 
 import akka.testkit.AkkaSpec
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import akka.testkit.TimingTest
 import akka.testkit.TestLatch
 import scala.concurrent.Await

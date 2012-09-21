@@ -7,19 +7,16 @@ import com.typesafe.config.ConfigFactory
 import akka.remote.testkit.MultiNodeConfig
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit._
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import akka.actor.ActorSystem
-import scala.concurrent.util.Deadline
 import java.util.concurrent.TimeoutException
 import scala.collection.immutable.SortedSet
 import scala.concurrent.Await
-import scala.concurrent.util.Duration
 import java.util.concurrent.TimeUnit
 import akka.remote.testconductor.RoleName
 import akka.actor.Props
 import akka.actor.Actor
 import akka.cluster.MemberStatus._
-import scala.concurrent.util.FiniteDuration
 
 object LargeClusterMultiJvmSpec extends MultiNodeConfig {
   // each jvm simulates a datacenter with many nodes

@@ -12,7 +12,7 @@ import akka.remote.testconductor.{ TestConductorProtocol ⇒ TCP }
 import com.google.protobuf.Message
 import akka.actor.Address
 import org.jboss.netty.handler.codec.oneone.OneToOneDecoder
-import scala.concurrent.util.Duration
+import scala.concurrent.duration.Duration
 import akka.remote.testconductor.TestConductorProtocol.BarrierOp
 
 case class RoleName(name: String)

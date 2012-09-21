@@ -12,9 +12,7 @@ import org.jboss.netty.channel.{ SimpleChannelHandler, MessageEvent, Channels, C
 import akka.actor.{ Props, LoggingFSM, Address, ActorSystem, ActorRef, ActorLogging, Actor, FSM }
 import akka.event.Logging
 import akka.remote.netty.ChannelAddress
-import scala.concurrent.util.Duration
-import scala.concurrent.util.duration._
-import scala.concurrent.util.FiniteDuration
+import scala.concurrent.duration._
 
 /**
  * INTERNAL API.

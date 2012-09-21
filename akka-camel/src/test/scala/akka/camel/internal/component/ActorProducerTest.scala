@@ -10,8 +10,7 @@ import org.mockito.Matchers.any
 import org.mockito.Mockito._
 import org.apache.camel.{ CamelContext, ProducerTemplate, AsyncCallback }
 import java.util.concurrent.atomic.AtomicBoolean
-import scala.concurrent.util.duration._
-import scala.concurrent.util.Duration
+import scala.concurrent.duration._
 import java.lang.String
 import akka.actor.{ ActorRef, Props, ActorSystem, Actor }
 import akka.camel._
@@ -26,7 +25,6 @@ import com.typesafe.config.ConfigFactory
 import akka.actor.ActorSystem.Settings
 import akka.event.LoggingAdapter
 import akka.testkit.{ TimingTest, TestKit, TestProbe }
-import scala.concurrent.util.FiniteDuration
 
 class ActorProducerTest extends TestKit(ActorSystem("test")) with WordSpec with MustMatchers with ActorProducerFixture {
 

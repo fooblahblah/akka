@@ -7,9 +7,9 @@ package akka.cluster
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.{ AtomicBoolean, AtomicLong }
 import akka.actor.{ Scheduler, Cancellable }
-import scala.concurrent.util.Duration
+import scala.concurrent.duration.Duration
 import concurrent.ExecutionContext
-import scala.concurrent.util.FiniteDuration
+import scala.concurrent.duration.FiniteDuration
 
 /**
  * INTERNAL API

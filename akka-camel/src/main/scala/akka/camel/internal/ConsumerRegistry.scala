@@ -12,10 +12,10 @@ import akka.actor._
 import collection.mutable
 import org.apache.camel.model.RouteDefinition
 import org.apache.camel.CamelContext
-import scala.concurrent.util.Duration
+import scala.concurrent.duration.Duration
 import concurrent.Await
 import akka.util.Timeout
-import scala.concurrent.util.FiniteDuration
+import scala.concurrent.duration.FiniteDuration
 
 /**
  * For internal use only.

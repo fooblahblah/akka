@@ -8,9 +8,9 @@ import internal._
 import akka.actor._
 import org.apache.camel.{ ProducerTemplate, CamelContext }
 import com.typesafe.config.Config
-import scala.concurrent.util.Duration
+import scala.concurrent.duration.Duration
 import java.util.concurrent.TimeUnit._
-import scala.concurrent.util.FiniteDuration
+import scala.concurrent.duration.FiniteDuration
 
 /**
  * Camel trait encapsulates the underlying camel machinery.

@@ -10,8 +10,7 @@ import akka.util.Unsafe
 import scala.util.control.NoStackTrace
 import java.util.concurrent.{ Callable, CopyOnWriteArrayList }
 import scala.concurrent.{ ExecutionContext, Future, Promise, Await }
-import scala.concurrent.util.{ FiniteDuration, Deadline }
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import scala.util.control.NonFatal
 import scala.util.Success
 

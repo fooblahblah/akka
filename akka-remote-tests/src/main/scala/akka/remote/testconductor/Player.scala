@@ -6,8 +6,7 @@ package akka.remote.testconductor
 import language.postfixOps
 import akka.actor.{ Actor, ActorRef, ActorSystem, LoggingFSM, Props, PoisonPill, Status, Address, Scheduler }
 import RemoteConnection.getAddrString
-import scala.concurrent.util.{ Duration, Deadline }
-import scala.concurrent.util.duration._
+import scala.concurrent.duration._
 import akka.util.Timeout
 import org.jboss.netty.channel.{ Channel, SimpleChannelUpstreamHandler, ChannelHandlerContext, ChannelStateEvent, MessageEvent, WriteCompletionEvent, ExceptionEvent }
 import com.typesafe.config.ConfigFactory
@@ -19,7 +18,6 @@ import akka.event.{ LoggingAdapter, Logging }
 import java.net.{ InetSocketAddress, ConnectException }
 import scala.reflect.classTag
 import concurrent.{ ExecutionContext, Await, Future }
-import scala.concurrent.util.FiniteDuration
 
 /**
  * The Player is the client component of the
