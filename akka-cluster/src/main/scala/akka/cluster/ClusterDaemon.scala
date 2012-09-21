@@ -190,32 +190,32 @@ private[cluster] final class ClusterCoreDaemon extends Actor with ActorLogging {
 
   // start periodic gossip to random nodes in cluster
   val gossipTask =
-    FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(GossipInterval).asInstanceOf[FiniteDuration], GossipInterval) {
+    FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(GossipInterval), GossipInterval) {
       self ! GossipTick
     }
 
   // start periodic heartbeat to all nodes in cluster
   val heartbeatTask =
-    FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(HeartbeatInterval).asInstanceOf[FiniteDuration], HeartbeatInterval) {
+    FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(HeartbeatInterval), HeartbeatInterval) {
       self ! HeartbeatTick
     }
 
   // start periodic cluster failure detector reaping (moving nodes condemned by the failure detector to unreachable list)
   val failureDetectorReaperTask =
-    FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(UnreachableNodesReaperInterval).asInstanceOf[FiniteDuration], UnreachableNodesReaperInterval) {
+    FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(UnreachableNodesReaperInterval), UnreachableNodesReaperInterval) {
       self ! ReapUnreachableTick
     }
 
   // start periodic leader action management (only applies for the current leader)
   private val leaderActionsTask =
-    FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(LeaderActionsInterval).asInstanceOf[FiniteDuration], LeaderActionsInterval) {
+    FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(LeaderActionsInterval), LeaderActionsInterval) {
       self ! LeaderActionsTick
     }
 
   // start periodic publish of current state
   private val publishStateTask: Option[Cancellable] =
     if (PublishStatsInterval == Duration.Zero) None
-    else Some(FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(PublishStatsInterval).asInstanceOf[FiniteDuration], PublishStatsInterval) {
+    else Some(FixedRateTask(scheduler, PeriodicTasksInitialDelay.max(PublishStatsInterval), PublishStatsInterval) {
       self ! PublishStatsTick
     })
 

@@ -452,7 +452,7 @@ class CircuitBreaker(scheduler: Scheduler, maxFailures: Int, callTimeout: Finite
      * @return Future containing result of protected call
      */
     override def invoke[T](body: ⇒ Future[T]): Future[T] =
-      Promise.failed[T](new CircuitBreakerOpenException(remainingTimeout().timeLeft.asInstanceOf[FiniteDuration])).future
+      Promise.failed[T](new CircuitBreakerOpenException(remainingTimeout().timeLeft)).future
 
     /**
      * Calculate remaining timeout to inform the caller in case a backoff algorithm is useful

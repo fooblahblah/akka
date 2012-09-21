@@ -79,13 +79,13 @@ trait Player { this: TestConductorExt ⇒
     system.log.debug("entering barriers " + name.mkString("(", ", ", ")"))
     val stop = Deadline.now + timeout.duration
     name foreach { b ⇒
-      val barrierTimeout = stop.timeLeft.asInstanceOf[FiniteDuration]
+      val barrierTimeout = stop.timeLeft
       if (barrierTimeout < Duration.Zero) {
         client ! ToServer(FailBarrier(b))
         throw new TimeoutException("Server timed out while waiting for barrier " + b);
       }
       try {
-        implicit val timeout = Timeout((barrierTimeout + Settings.QueryTimeout.duration).asInstanceOf[FiniteDuration])
+        implicit val timeout = Timeout(barrierTimeout + Settings.QueryTimeout.duration)
         Await.result(client ? ToServer(EnterBarrier(b, Option(barrierTimeout))), Duration.Inf)
       } catch {
         case e: AskTimeoutException ⇒
@@ -276,7 +276,7 @@ private[akka] class PlayerHandler(
     event.getCause match {
       case c: ConnectException if reconnects > 0 ⇒
         reconnects -= 1
-        scheduler.scheduleOnce(nextAttempt.timeLeft.asInstanceOf[FiniteDuration])(reconnect())
+        scheduler.scheduleOnce(nextAttempt.timeLeft)(reconnect())
       case e ⇒ fsm ! ConnectionFailure(e.getMessage)
     }
   }

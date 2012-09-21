@@ -121,9 +121,7 @@ abstract class LargeClusterSpec
     systems foreach { Cluster(_) }
   }
 
-  def expectedMaxDuration(totalNodes: Int): FiniteDuration =
-    // this cast will always succeed, but the compiler does not know about it ...
-    (5.seconds + (2.seconds * totalNodes)).asInstanceOf[FiniteDuration]
+  def expectedMaxDuration(totalNodes: Int): FiniteDuration = 5.seconds + 2.seconds * totalNodes
 
   def joinAll(from: RoleName, to: RoleName, totalNodes: Int, runOnRoles: RoleName*): Unit = {
     val joiningClusters = systems.map(Cluster(_)).toSet
@@ -271,7 +269,7 @@ abstract class LargeClusterSpec
       val unreachableNodes = nodesPerDatacenter
       val liveNodes = nodesPerDatacenter * 4
 
-      within((30.seconds + (3.seconds * liveNodes)).asInstanceOf[FiniteDuration]) {
+      within(30.seconds + 3.seconds * liveNodes) {
         val startGossipCounts = Map.empty[Cluster, Long] ++
           systems.map(sys ⇒ (Cluster(sys) -> Cluster(sys).readView.latestStats.receivedGossipCount))
         def gossipCount(c: Cluster): Long = {

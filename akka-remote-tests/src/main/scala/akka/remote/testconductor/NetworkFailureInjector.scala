@@ -335,7 +335,7 @@ private[akka] class ThrottleActor(channelContext: ChannelHandlerContext)
         if (timeForPacket <= now) rec(Data(timeForPacket, d.rateMBit, d.queue.tail), toSend :+ d.queue.head)
         else {
           val splitThreshold = d.lastSent + packetSplitThreshold.toNanos
-          if (now < splitThreshold) (d, toSend, Some(((timeForPacket - now).nanos min (splitThreshold - now).nanos).asInstanceOf[FiniteDuration]))
+          if (now < splitThreshold) (d, toSend, Some((timeForPacket - now).nanos min (splitThreshold - now).nanos))
           else {
             val microsToSend = (now - d.lastSent) / 1000
             val (s1, s2) = split(d.queue.head, (microsToSend * d.rateMBit / 8).toInt)

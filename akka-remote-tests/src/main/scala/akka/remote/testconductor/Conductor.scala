@@ -558,7 +558,7 @@ private[akka] class BarrierCoordinator extends Actor with LoggingFSM[BarrierCoor
   }
 
   onTransition {
-    case Idle -> Waiting ⇒ setTimer("Timeout", StateTimeout, nextStateData.deadline.timeLeft.asInstanceOf[FiniteDuration], false)
+    case Idle -> Waiting ⇒ setTimer("Timeout", StateTimeout, nextStateData.deadline.timeLeft, false)
     case Waiting -> Idle ⇒ cancelTimer("Timeout")
   }
 
@@ -569,7 +569,7 @@ private[akka] class BarrierCoordinator extends Actor with LoggingFSM[BarrierCoor
       val enterDeadline = getDeadline(timeout)
       // we only allow the deadlines to get shorter
       if (enterDeadline.timeLeft < deadline.timeLeft) {
-        setTimer("Timeout", StateTimeout, enterDeadline.timeLeft.asInstanceOf[FiniteDuration], false)
+        setTimer("Timeout", StateTimeout, enterDeadline.timeLeft, false)
         handleBarrier(d.copy(arrived = together, deadline = enterDeadline))
       } else
         handleBarrier(d.copy(arrived = together))

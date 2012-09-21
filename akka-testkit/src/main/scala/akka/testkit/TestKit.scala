@@ -191,7 +191,7 @@ trait TestKitBase {
   def remainingOr(duration: FiniteDuration): FiniteDuration = end match {
     case x if x eq Duration.Undefined ⇒ duration
     case x if !x.isFinite             ⇒ throw new IllegalArgumentException("`end` cannot be infinite")
-    case f: FiniteDuration            ⇒ (end - now).asInstanceOf[FiniteDuration] // RK FIXME after next Scala milestone
+    case f: FiniteDuration            ⇒ end - now
   }
 
   private def remainingOrDilated(max: Duration): FiniteDuration = max match {
